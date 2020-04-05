@@ -96,7 +96,7 @@ if [ $INSTALL_MARIADB == "yes" ];
         echo ""
         echo "INSTALLATION AND CONFIGURATION: MYSQL DATABASE AND SERVER"
         sleep $WAIT
-        bash install/mariadb.sh $DATABASE_NAME $DATABASE_PASS
+        bash install/mariadb.sh $DATABASE_NAME $DATABASE_ROOT_PASS $DATABASE_USER $DATABASE_PASS $DATABASE_HOST
 fi;
 
 if [ $INSTALL_PHP == "yes" ];
