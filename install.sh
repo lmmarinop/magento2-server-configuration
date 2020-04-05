@@ -26,6 +26,7 @@ DATABASE_HOST=$(awk -F "=" '/database_host/ {print $2}' install.ini)
 DATABASE_NAME=$(awk -F "=" '/database_name/ {print $2}' install.ini)
 DATABASE_USER=$(awk -F "=" '/database_user/ {print $2}' install.ini)
 DATABASE_PASS=$(awk -F "=" '/database_pass/ {print $2}' install.ini)
+DATABASE_ROOT_PASS=$(awk -F "=" '/database_root_pass/ {print $2}' install.ini)
 LINUX_MAGENTO_USER_NAME=$(awk -F "=" '/linux_magento_user_name/ {print $2}' install.ini)
 LINUX_MAGENTO_USER_PASS=$(awk -F "=" '/linux_magento_user_pass/ {print $2}' install.ini)
 MAGENTO_CONNECT_PUBLIC_KEY=$(awk -F "=" '/magento_connect_public_key/ {print $2}' install.ini)
@@ -39,11 +40,14 @@ INSTALL_BASICS=$(awk -F "=" '/install_basics/ {print $2}' install.ini)
 INSTALL_NGINX=$(awk -F "=" '/install_nginx/ {print $2}' install.ini)
 INSTALL_APACHE=$(awk -F "=" '/install_apache/ {print $2}' install.ini)
 INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
+INSTALL_MARIADB=$(awk -F "=" '/install_mariadb/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
 INSTALL_CERTBOT=$(awk -F "=" '/install_certbot/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
 INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
+INSTALL_VARNISH=$(awk -F "=" '/install_varnis/ {print $2}' install.ini)
+INSTALL_ELASTICSEARCH=$(awk -F "=" '/install_elasticsearch/ {print $2}' install.ini)
 SWAPING_SETTINGS=$(awk -F "=" '/swaping_settings/ {print $2}' install.ini)
 MAGENTO_CONNECT_KEY_STORING=$(awk -F "=" '/magento_connect_key_storing/ {print $2}' install.ini)
 MAGENTO_WEBSERVER_CONFIG=$(awk -F "=" '/magento_webserver_config/ {print $2}' install.ini)
@@ -87,6 +91,14 @@ if [ $INSTALL_MYSQL == "yes" ];
         bash install/mysql.sh $DATABASE_NAME $DATABASE_PASS
 fi;
 
+if [ $INSTALL_MARIADB == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION AND CONFIGURATION: MYSQL DATABASE AND SERVER"
+        sleep $WAIT
+        bash install/mariadb.sh $DATABASE_NAME $DATABASE_PASS
+fi;
+
 if [ $INSTALL_PHP == "yes" ];
     then
         echo ""
@@ -126,6 +138,23 @@ if [ $INSTALL_REDIS == "yes" ];
         sleep $WAIT
         bash install/redis.sh
 fi;
+
+if [ $INSTALL_VARNISH == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: VARNIS"
+        sleep $WAIT
+        bash install/varnish.sh
+fi;
+
+if [ $INSTALL_ELASTICSEARCH == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: ELASTICSEARCH"
+        sleep $WAIT
+        bash install/elasticsearch.sh
+fi;
+
 
 if [ $SWAPING_SETTINGS == "yes" ];
     then
