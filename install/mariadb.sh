@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
-#1database
-#2rootPassword
-#3dbuser
-#4dbpassword
-#5host
 
 if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ];
     then
         debconf-set-selections <<< "mariadb-server-10.2 mysql-server/root_password password $2"
         debconf-set-selections <<< "mariadb-server-10.2 mysql-server/root_password_again password $2"
-        apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-        add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://mirror.ufscar.br/mariadb/repo/10.2/ubuntu bionic main'
+        apt-key adv --fetch-keys "https://mariadb.org/mariadb_release_signing_key.asc"
+        add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mirror.ufscar.br/mariadb/repo/10.2/ubuntu bionic main"
 
         apt-get install mariadb-server --yes
 
         service mysql start
 
-        mysql -u root --password="$2" << EOF
+        mysql -uroot -p$2 <<EOMYSQL
             DROP DATABASE IF EXISTS $1;
             CREATE DATABASE IF NOT EXISTS $1;
             CREATE USER IF NOT EXISTS '$3'@'$5' IDENTIFIED BY '$4';
@@ -24,7 +19,9 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ];
             SET GLOBAL log_bin_trust_function_creators = 1;
             FLUSH PRIVILEGES;
             SHOW DATABASES;
-        EOF
+            EXIT
+EOMYSQL
+    
 
     else
         echo "Missing parameters.";
