@@ -10,8 +10,6 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         mkdir /var/www/html/$2/webroot
         mkdir /var/www/html/$2/log
 
-        echo "Download Magento $1 release"
-
         cd /var/www/html
         rm -rf /var/www/html/$2/webroot/*
         rm -rf /var/www/html/$2/webroot/.*
@@ -20,8 +18,10 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         chown -R :www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
-        chmod u+x bin/magento
+        #chmod u+x bin/magento
 
+        rm -rf /etc/nginx/sites-available/$2
+        rm -rf /etc/nginx/sites-enabled/$2
         SITE=/etc/nginx/sites-available/$2
         curl https://raw.githubusercontent.com/DavidBelicza/magento2-server-configuration/master/config/nginx-site > $SITE
 
