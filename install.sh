@@ -47,6 +47,7 @@ INSTALL_CERTBOT=$(awk -F "=" '/install_certbot/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
 INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
 INSTALL_VARNISH=$(awk -F "=" '/install_varnis/ {print $2}' install.ini)
+VARNISH_NGINX_SSL=$(awk -F "=" '/configure_varnish_ssl/ {print $2}' install.ini)
 INSTALL_ELASTICSEARCH=$(awk -F "=" '/install_elasticsearch/ {print $2}' install.ini)
 SWAPING_SETTINGS=$(awk -F "=" '/swaping_settings/ {print $2}' install.ini)
 MAGENTO_CONNECT_KEY_STORING=$(awk -F "=" '/magento_connect_key_storing/ {print $2}' install.ini)
@@ -203,3 +204,12 @@ if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
         sleep $WAIT
         bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE
 fi;
+
+if [ VARNISH_NGINX_SSL == "yes" ];
+    then
+        echo ""
+        echo "CONFIGURATION: NGINX WITH VARNISH SSL TERMINATION"
+        sleep $WAIT
+        bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE
+fi;
+
