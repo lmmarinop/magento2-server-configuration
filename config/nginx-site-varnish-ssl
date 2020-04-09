@@ -3,7 +3,7 @@ upstream fastcgi_backend {
 }
 
 server {
-    server_name yourdomain.com;
+    server_name mywebshop.com;
     listen 127.0.0.1:8080;
     set $MAGE_ROOT /var/www/html/mywebshop.com/webroot;
     include /var/www/html/mywebshop.com/webroot/nginx.conf.sample;
