@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-if [ $1 ];
+if [ $1 ] && [ $2 ];
   then
     cd /var/www/html/$1/webroot
     
     php bin/magento config:set system/full_page_cache/caching_application 2
-    php bin/magento varnish:vcl:generate --access-list localhost --backend-host localhost --backend-port 8080 --export-version 6 --output-file var/default.vcl
+    php bin/magento varnish:vcl:generate --access-list localhost --backend-host localhost --backend-port 8080 --export-version $2 --output-file var/default.vcl
     systemctl stop varnish
    
     mv /etc/varnish/default.vcl /etc/varnish/default.vcl.bckp
@@ -25,6 +25,7 @@ if [ $1 ];
   else
     echo "";
     echo "1st parameter is magento domain";
+    echo "2nd parameter is varnish version";
     echo "Try this: varnish_ssl.sh mywebshop.com";
     echo "";
 fi;
