@@ -9,7 +9,7 @@ if [ $1 ] && [ $2 ];
         composer update
         php bin/magento setup:upgrade
 
-        php bin/magento setup:static-content:deploy $2
+        php bin/magento setup:static-content:deploy $2 -f
 
         php bin/magento cache:clean
         php bin/magento cache:flush
