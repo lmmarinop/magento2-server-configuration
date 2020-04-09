@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 curl -s https://packagecloud.io/install/repositories/varnishcache/varnish64/script.deb.sh | sudo bash
