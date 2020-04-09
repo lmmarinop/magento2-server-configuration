@@ -9,4 +9,6 @@ apt-get update
 
 apt-get install \
     certbot \
+    python-certbot-nginx \
+
     --yes
