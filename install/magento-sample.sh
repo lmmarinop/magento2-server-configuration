@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-if [ $1 ] && [ $2 ];
+if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
     then
+        echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$3"\", \"password\":\""$4"\"}}}" >> /var/www/html/$1/webroot/var/composer_home/auth.json
+     
         cd /var/www/html/$1/webroot
-
+              
         php bin/magento sampledata:deploy
         export COMPOSER_HOME=/var/www/html/$1/composer
         composer update
