@@ -202,7 +202,7 @@ if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
         echo ""
         echo "INSTALLATION: MAGENTO 2 SAMPLE DATA DEMO STORE"
         sleep $WAIT
-        bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE
+        bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY
 fi;
 
 if [ VARNISH_NGINX_SSL == "yes" ];
