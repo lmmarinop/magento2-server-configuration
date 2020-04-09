@@ -1,11 +1,10 @@
 
 #!/usr/bin/env bash
 
-curl https://TOKEN:@packagecloud.io/varnishplus/60/gpgkey | apt-key add -
-echo "deb https://packagecloud.io/varnishcache/varnish60lts/ubuntu/ bionic main" | sudo tee -a /etc/apt/sources.list.d/varnishcache_varnish60lts.list
+curl -s https://packagecloud.io/install/repositories/varnishcache/varnish64/script.deb.sh | sudo bash
 
 apt-get install \
-    varnish \
+    varnish=6.4.0-1~bionic \
     --yes
 
 service varnish restart
