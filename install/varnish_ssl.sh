@@ -20,7 +20,7 @@ if [ $1 ];
     ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
 
     systemctl start varnish
-    service nginx reload
+    systemctl reload nginx 
   
   else
     echo "";
