@@ -12,9 +12,9 @@ if [ $1 ];
     mv /etc/nginx/sites-available/$1 /etc/nginx/sites-available/no-ssl-current
     rm -rf /etc/nginx/sites-enabled/$1
     SITE=/etc/nginx/sites-available/$1
-    curl https://raw.githubusercontent.com/DavidBelicza/magento2-server-configuration/master/config/nginx-site-varnish-ssl > $SITE
+    curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/nginx-site-varnish-ssl > $SITE
 
-    sed -i -e "s/mywebshop.com/$1/g" $SITE
+    sed -i "s/mywebshop.com/$1/" $SITE
     ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
 
     service nginx reload
