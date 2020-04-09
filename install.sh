@@ -55,6 +55,7 @@ MAGENTO_WEBSERVER_CONFIG=$(awk -F "=" '/magento_webserver_config/ {print $2}' in
 MAGENTO_DEPENDENCY_INJECTION=$(awk -F "=" '/magento_dependency_injection/ {print $2}' install.ini)
 MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.ini)
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
+MAGENTO_POST_INSTALL=$(awk -F "=" '/magento_post_install/ {print $2}' install.ini)
 
 WAIT=$(awk -F "=" '/wait/ {print $2}' install.ini)
 
@@ -212,4 +213,13 @@ if [ VARNISH_NGINX_SSL == "yes" ];
         sleep $WAIT
         bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE
 fi;
+
+if [ MAGENTO_POST_INSTALL == "yes" ];
+    then
+        echo ""
+        echo "CONFIGURATION: MAGENTO POST INSTALLATION SCRIPTS"
+        sleep $WAIT
+        bash install/magento_post-install.sh $DOMAIN 
+fi;
+
 
