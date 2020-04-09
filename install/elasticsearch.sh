@@ -14,3 +14,7 @@
     apt-get install \
     elasticsearch \
     --yes
+    
+    systemctl daemon-reload
+    systemctl enable elasticsearch.service
+    systemctl restart elasticsearch.service
