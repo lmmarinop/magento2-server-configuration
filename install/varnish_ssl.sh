@@ -5,6 +5,7 @@ if [ $1 ];
     cd /var/www/html/$1/webroot
     
     php bin/magento varnish:vcl:generate --access-list localhost --backend-host localhost --backend-port 8080 --export-version 6 --output-file var/default.vcl
+    systemctl stop varnish
    
     mv /etc/varnish/default.vcl /etc/varnish/default.vcl.bckp
     cp /var/www/html/$1/webroot/var/default.vcl  /etc/varnish/default.vcl
@@ -17,6 +18,7 @@ if [ $1 ];
     sed -i "s/mywebshop.com/$1/" $SITE
     ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/
 
+    systemctl start varnish
     service nginx reload
   
   else
