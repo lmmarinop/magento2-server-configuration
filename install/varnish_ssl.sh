@@ -11,8 +11,9 @@ if [ $1 ] && [ $2 ];
     mv /etc/varnish/default.vcl /etc/varnish/default.vcl.bckp
     cp /var/www/html/$1/webroot/var/default.vcl  /etc/varnish/default.vcl
     
-    mv /etc/nginx/sites-available/$1 /etc/nginx/sites-available/no-ssl-current
     rm -rf /etc/nginx/sites-enabled/$1
+    mv /etc/nginx/sites-available/$1 /etc/nginx/sites-available/no-ssl-current
+    
     SITE=/etc/nginx/sites-available/$1
     curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/nginx-site-varnish-ssl > $SITE
 
