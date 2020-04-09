@@ -11,6 +11,8 @@
    set JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
    sed -i '$aJAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"' /etc/profile
 
+    sudo apt-get update
+    
     apt-get install \
     elasticsearch \
     --yes
