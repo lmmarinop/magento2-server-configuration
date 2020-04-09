@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 apt-get install \
+    php \
     php-fpm \
     php-mysql \
     php-curl \
