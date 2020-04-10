@@ -207,7 +207,7 @@ if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
         bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY
 fi;
 
-if [ VARNISH_NGINX_SSL == "yes" ];
+if [ $VARNISH_NGINX_SSL == "yes" ];
     then
         echo ""
         echo "CONFIGURATION: NGINX WITH VARNISH SSL TERMINATION"
@@ -216,7 +216,7 @@ if [ VARNISH_NGINX_SSL == "yes" ];
 
 fi;
 
-if [ MAGENTO_POST_INSTALL == "yes" ];
+if [ $MAGENTO_POST_INSTALL == "yes" ];
     then
         echo ""
         echo "CONFIGURATION: MAGENTO POST INSTALLATION SCRIPTS"
