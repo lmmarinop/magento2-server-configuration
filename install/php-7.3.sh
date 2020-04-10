@@ -2,6 +2,8 @@
 
 echo -ne '\n' |  add-apt-repository ppa:ondrej/php
 
+apt-get update
+
 apt-get install \
     php7.3 \ 
     php7.3-pdo \
