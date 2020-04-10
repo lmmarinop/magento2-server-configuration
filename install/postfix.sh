@@ -12,7 +12,7 @@ if [ $1 ];
 
         echo "root,www-data   info@$1" >> /etc/postfix/virtual
 
-        curl https://raw.githubusercontent.com/DoveID/magento2-server-configuration/master/config/postfix-config > /etc/postfix/main.cf
+        curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/postfix-config > /etc/postfix/main.cf
         sed -i -e "s/mywebshop.com/$1/g" /etc/postfix/main.cf
 
         postmap /etc/postfix/virtual
