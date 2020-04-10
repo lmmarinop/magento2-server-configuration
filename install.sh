@@ -36,6 +36,7 @@ CURRENCY_CODE=$(awk -F "=" '/currency_code/ {print $2}' install.ini)
 ADMIN_LOGIN_NAME=$(awk -F "=" '/admin_login_name/ {print $2}' install.ini)
 ADMIN_LOGIN_PASS=$(awk -F "=" '/admin_login_pass/ {print $2}' install.ini)
 ADMIN_EMAIL=$(awk -F "=" '/admin_email/ {print $2}' install.ini)
+ADMIN_URI=$(awk -F "=" '/admin_uri/ {print $2}' install.ini)
 INSTALL_BASICS=$(awk -F "=" '/install_basics/ {print $2}' install.ini)
 INSTALL_NGINX=$(awk -F "=" '/install_nginx/ {print $2}' install.ini)
 INSTALL_APACHE=$(awk -F "=" '/install_apache/ {print $2}' install.ini)
@@ -196,7 +197,7 @@ if [ $MAGENTO_INSTALLATION == "yes" ];
         echo ""
         echo "INSTALLATION: THE MAGENTO 2"
         sleep $WAIT
-        bash install/magento-install.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE
+        bash install/magento-install.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE $ADMIN_URI
 fi;
 
 if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
