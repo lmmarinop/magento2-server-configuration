@@ -108,7 +108,7 @@ if [ $INSTALL_PHP == "yes" ];
         echo ""
         echo "INSTALLATION: FULL PHP 7"
         sleep $WAIT
-        bash install/php7.sh
+        bash install/php7.3.sh
 fi;
 
 if [ $INSTALL_MAILER == "yes" ];
