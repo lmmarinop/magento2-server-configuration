@@ -8,7 +8,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         --db-host=$3 --db-name=$4 --db-user=$5 --db-password=$6 \
         --admin-firstname=Developer --admin-lastname=Developer --admin-email=$7 \
         --admin-user=$8 --admin-password=$9 --language=${10} \
-        --currency=${11} --timezone=America/Bogota --use-rewrites=1 --use-secure=1 --use-secure-admin=1 --backend-frontname=$12
+        --currency=${11} --timezone=America/Bogota --use-rewrites=1 --use-secure=1 --use-secure-admin=1 --backend-frontname=${12} \
 
         php bin/magento deploy:mode:set developer
         php bin/magento cache:disable
