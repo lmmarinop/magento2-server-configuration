@@ -146,7 +146,7 @@ fi;
 if [ $INSTALL_VARNISH == "yes" ];
     then
         echo ""
-        echo "INSTALLATION: VARNIS"
+        echo "INSTALLATION: VARNISH"
         sleep $WAIT
         bash install/varnish.sh
 fi;
