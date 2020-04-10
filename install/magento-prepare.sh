@@ -23,7 +23,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         rm -rf /etc/nginx/sites-available/$2
         rm -rf /etc/nginx/sites-enabled/$2
         SITE=/etc/nginx/sites-available/$2
-        curl https://raw.githubusercontent.com/DavidBelicza/magento2-server-configuration/master/config/nginx-site > $SITE
+        curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/nginx-site > $SITE
 
         sed -i -e "s/mywebshop.com/$2/g" $SITE
         ln -s /etc/nginx/sites-available/$2 /etc/nginx/sites-enabled/
