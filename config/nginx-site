@@ -19,7 +19,7 @@
 # CREATED BY DAVID BELICZA
 
 upstream fastcgi_backend {
-   server   unix:/var/run/php/php7.2-fpm.sock;
+   server   unix:/var/run/php/php7.3-fpm.sock;
 }
 
 server {
