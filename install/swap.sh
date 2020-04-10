@@ -5,7 +5,7 @@ SWAP="/swapfile       none    swap    sw      0       0"
 if grep -q $SWAP /etc/fstab; then
     echo "Swap has been set before"
 else
-    dd if=/dev/zero of=/swapfile bs=1024 count=256k
+    dd if=/dev/zero of=/swapfile bs=1024 count=8000k
     mkswap /swapfile
     swapon /swapfile
 
