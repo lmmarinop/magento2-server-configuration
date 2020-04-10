@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-apt-get install \
-    software-properties-common \
-    --yes
+echo -ne '\n' |  add-apt-repository ppa:certbot/certbot
 
-add-apt-repository ppa:certbot/certbot
 apt-get update
 
 apt-get install \
+    software-properties-common \
     certbot \
     python-certbot-nginx \
-
     --yes
