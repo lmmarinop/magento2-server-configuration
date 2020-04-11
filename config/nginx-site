@@ -24,12 +24,12 @@ upstream fastcgi_backend {
 
 server {
     listen 80;
-    server_name my-magento-2-webshop.com;
+    server_name mywebshop.com;
 
-    set $MAGE_ROOT /var/www/html/my-magento-2-webshop.com/webroot;
+    set $MAGE_ROOT /var/www/html/mywebshop.com/webroot;
     set $MAGE_MODE developer;
 
-    root /var/www/html/my-magento-2-webshop.com/webroot/pub;
+    root /var/www/html/mywebshop.com/webroot/pub;
 
     index index.php;
     autoindex off;
