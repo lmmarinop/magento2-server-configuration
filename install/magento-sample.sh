@@ -5,7 +5,11 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$3"\", \"password\":\""$4"\"}}}" >> /var/www/html/$1/webroot/var/composer_home/auth.json
      
         cd /var/www/html/$1/webroot
-              
+        
+        chown -R :www-data .
+        find . -type d -exec chmod 770 {} \;
+        find . -type f -exec chmod 660 {} \;
+        
         php bin/magento sampledata:deploy
         export COMPOSER_HOME=/var/www/html/$1/composer
         composer update
