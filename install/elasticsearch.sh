@@ -17,6 +17,9 @@
     elasticsearch \
     --yes
     
+    sed -i "s/-Xms.*/-Xms512m/" /etc/elasticsearch/jvm.options
+    sed -i "s/-Xmx.*/-Xmx512m/" /etc/elasticsearch/jvm.options
+    
     systemctl daemon-reload
     systemctl enable elasticsearch.service
     systemctl restart elasticsearch.service
