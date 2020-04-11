@@ -3,7 +3,7 @@
 if [ $1 ];
   then
    cd /var/www/html/$1/webroot
-   magento config:set catalog/search/engine 'elasticsearch6'
+  bin/magento config:set catalog/search/engine 'elasticsearch6'
    
 else
     echo "";
