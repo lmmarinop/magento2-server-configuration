@@ -45,6 +45,7 @@ INSTALL_MARIADB=$(awk -F "=" '/install_mariadb/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
 INSTALL_CERTBOT=$(awk -F "=" '/install_certbot/ {print $2}' install.ini)
+INSTALL_CERTBOT_CERTIFICATES=$(awk -F "=" '/install_certbot_certificate/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
 INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
 INSTALL_VARNISH=$(awk -F "=" '/install_varnis/ {print $2}' install.ini)
@@ -207,6 +208,15 @@ if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
         sleep $WAIT
         bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY
 fi;
+
+if [ $INSTALL_CERTBOT_CERTIFICATES == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: CERTBOT CERTIFICATES"
+        sleep $WAIT
+        bash install/certbot_certificate.sh $DOMAIN $ADMIN_EMAIL
+fi;
+
 
 if [ $VARNISH_NGINX_SSL == "yes" ];
     then
