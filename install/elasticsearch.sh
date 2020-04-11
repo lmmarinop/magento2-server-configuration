@@ -9,7 +9,7 @@
    apt-get install default-jdk -y
    update-alternatives --config java
    set JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-   sed -i '$aJAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"' /etc/profile
+   echo 'export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"' | sudo tee -a ~/.profile
 
     sudo apt-get update --yes
     
