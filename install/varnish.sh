@@ -11,10 +11,6 @@ apt-get install \
 
 service varnish restart
 else
-    apt-get install \
-        varnish
-        --yes
-
+    apt-get install varnish --yes
     service varnish restart
-
 fi;
