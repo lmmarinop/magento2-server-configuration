@@ -25,7 +25,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         SITE=/etc/nginx/sites-available/$2
         curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/nginx-site > $SITE
 
-        sed -i -e "s/mywebshop.com/$2/g" $SITE
+        sed -i "s/mywebshop.com/$2/" $SITE
         ln -s /etc/nginx/sites-available/$2 /etc/nginx/sites-enabled/
 
         service nginx reload
