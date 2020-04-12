@@ -13,7 +13,7 @@ To install Magento, first fill out the install.ini file then run the command "su
 
 ## Guide
 
-* Get an Ubuntu 18.04
+* Get an Ubuntu 19.10
 * Update it: `sudo apt-get update`
 * Install git: `sudo apt-get install git`
 * Download this installer: `git clone https://github.com/DavidBelicza/magento2-server-configuration.git`
