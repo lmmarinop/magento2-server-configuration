@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
+if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ];
     then
         echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$3"\", \"password\":\""$4"\"}}}" >> /var/www/html/$1/webroot/var/composer_home/auth.json
      
         cd /var/www/html/$1/webroot
         
-        chown -R :www-data .
+        chown -R $5:www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
         
@@ -20,7 +20,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         php bin/magento cache:clean
         php bin/magento cache:flush
 
-        chown -R :www-data .
+        chown -R $5:www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
         chmod u+x bin/magento
