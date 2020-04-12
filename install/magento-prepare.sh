@@ -15,10 +15,10 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         rm -rf /var/www/html/$2/webroot/.*
 
         cd /var/www/html/$2/webroot
-        chown -R :www-data .
+        chown -R $3:www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
-        #chmod u+x bin/magento
+        chmod u+x bin/magento
 
         rm -rf /etc/nginx/sites-available/$2
         rm -rf /etc/nginx/sites-enabled/$2
