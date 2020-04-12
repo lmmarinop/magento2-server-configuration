@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] && [ $9 ] && [ ${10} ] && [ ${11} ] && [ ${12} ];
+if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] && [ $9 ] && [ ${10} ] && [ ${11} ] && [ ${12} ] && [ ${13} ];
     then
         cd /var/www/html/$1/webroot
 
@@ -35,6 +35,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         echo "10th parameter is language code";
         echo "11th parameter is currency code";
         echo "12th parameter is admin front-end-uri:  adminupap";
+        echo "13rd parameter is magento linux user";
         echo "Try this: magento-install.sh mywebshop.com http://mywebshop.com/ localhost magento root secret123 admin@mywebshop.com admin admin123 en_US USD";
         echo "";
 fi;
