@@ -109,7 +109,7 @@ if [ $INSTALL_PHP == "yes" ];
         echo ""
         echo "INSTALLATION: FULL PHP 7"
         sleep $WAIT
-        bash install/php-7.3.sh
+        bash install/php7.sh
 fi;
 
 if [ $INSTALL_MAILER == "yes" ];
@@ -198,7 +198,7 @@ if [ $MAGENTO_INSTALLATION == "yes" ];
         echo ""
         echo "INSTALLATION: THE MAGENTO 2"
         sleep $WAIT
-        bash install/magento-install.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE $ADMIN_URI $LINUX_MAGENTO_USER_NAME
+        bash install/magento-install.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE $ADMIN_URI $LINUX_MAGENTO_USER_NAME $LINUX_MAGENTO_USER_PASS
 fi;
 
 if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
@@ -206,7 +206,7 @@ if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
         echo ""
         echo "INSTALLATION: MAGENTO 2 SAMPLE DATA DEMO STORE"
         sleep $WAIT
-        bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY $LINUX_MAGENTO_USER_NAME
+        bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY $LINUX_MAGENTO_USER_NAME $LINUX_MAGENTO_USER_PASS
 fi;
 
 if [ $CONFIGURE_CERTBOT_CERTIFICATES == "yes" ];
@@ -232,7 +232,5 @@ if [ $MAGENTO_POST_INSTALL == "yes" ];
         echo ""
         echo "CONFIGURATION: MAGENTO POST INSTALLATION SCRIPTS"
         sleep $WAIT
-        bash install/magento_post-install.sh $DOMAIN 
+        bash install/magento_post-install.sh $DOMAIN
 fi;
-
-

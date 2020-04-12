@@ -20,13 +20,12 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         find . -type f -exec chmod 660 {} \;
         chmod u+x bin/magento
 
-        rm -rf /etc/nginx/sites-available/$2
-        rm -rf /etc/nginx/sites-enabled/$2
-        SITE=/etc/nginx/sites-available/$2
+        rm -rf /etc/nginx/conf.d/$2
+        SITE=/etc/nginx/conf.d/$2
         curl https://raw.githubusercontent.com/lmmarinop/magento2-server-configuration/alternative-stack/config/nginx-site > $SITE
 
         sed -i "s/mywebshop.com/$2/" $SITE
-        ln -s /etc/nginx/sites-available/$2 /etc/nginx/sites-enabled/
+
 
         service nginx reload
     else

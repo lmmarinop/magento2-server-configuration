@@ -3,11 +3,12 @@
 apt-get install \
     php \
     php-fpm \
+    php-opcache \
     php-mysql \
     php-curl \
     php-cli \
     php-gd \
-    php7.2-xsl \
+    php-xsl \
     php-json \
     php-intl \
     php-pear \
@@ -16,8 +17,10 @@ apt-get install \
     php-soap \
     php-mbstring \
     php-zip \
-    php7.2-bcmath \
+    php-bcmath \
     php-imagick \
+    php-xml \
     --yes
 
-service php7.2-fpm restart
+
+service php7.3-fpm restart
