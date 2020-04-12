@@ -12,4 +12,7 @@ apt-get install \
     curl \
     vim \
     unzip \
+    gnupg2 \ 
+    ca-certificates \
+    lsb-release \
     --yes
