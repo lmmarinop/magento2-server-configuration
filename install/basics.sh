@@ -12,4 +12,5 @@ apt-get install \
     curl \
     vim \
     unzip \
+    gnupg2 \
     --yes
