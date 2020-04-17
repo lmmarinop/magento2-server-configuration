@@ -13,6 +13,5 @@ apt-get install \
     vim \
     unzip \
     gnupg2 \ 
-    ca-certificates \
     lsb-release \
     --yes
