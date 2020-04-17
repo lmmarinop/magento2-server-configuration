@@ -3,3 +3,4 @@
 apt-get install \
     redis-server \
     --yes
+systemctl start redis
