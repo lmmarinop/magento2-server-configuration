@@ -20,4 +20,4 @@ apt-get install \
     php-imagick \
     --yes
 
-service php7.2-fpm restart
+service php7.3-fpm restart
